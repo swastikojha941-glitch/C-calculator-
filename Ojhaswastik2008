@@ -1,0 +1,366 @@
+#include <stdio.h>
+#include <math.h>
+
+float add(float a, float b)
+{
+    return a + b;
+}
+
+float subtract(float a, float b)
+{
+    return a - b;
+}
+
+float multiply(float a, float b)
+{
+    return a * b;
+}
+
+float divide(float a, float b)
+{
+    return a / b;
+}
+
+int rem(int a, int b)
+{
+    return a % b;
+}
+
+int main()
+{
+    float a, b;
+    int x, y, choice;
+    char again;
+
+    int historyCount = 0;
+    float history[10];
+    float result;
+
+    do
+    {
+        printf("\n\n================================");
+        printf("\n          CALCULATOR");
+        printf("\n================================");
+        printf("\n1. Addition");
+        printf("\n2. Subtraction");
+        printf("\n3. Multiplication");
+        printf("\n4. Division");
+        printf("\n5. Remainder");
+        printf("\n6. Percentage");
+        printf("\n7. Square");
+        printf("\n8. Power");
+        printf("\n9. Cube");
+        printf("\n10. Square Root");
+        printf("\n11. History");
+        printf("\n12. Clear History");
+        printf("\n================================");
+
+        printf("\nEnter your choice: ");
+
+        if(scanf("%d", &choice) != 1)
+        {
+            printf("Invalid choice! Please enter a number from 1 to 12.");
+            while(getchar() != '\n');
+            continue;
+        }
+
+        switch(choice)
+        {
+            case 1:
+                printf("Enter two numbers: ");
+
+                if(scanf("%f %f", &a, &b) != 2)
+                {
+                    printf("Invalid input! Please enter numbers only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                result = add(a, b);
+
+                printf("Result = %.2f", result);
+
+                if(historyCount < 10)
+                {
+                    history[historyCount] = result;
+                    historyCount++;
+                }
+
+                break;
+
+
+            case 2:
+                printf("Enter two numbers: ");
+
+                if(scanf("%f %f", &a, &b) != 2)
+                {
+                    printf("Invalid input! Please enter numbers only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                result = subtract(a, b);
+
+                printf("Result = %.2f", result);
+
+                if(historyCount < 10)
+                {
+                    history[historyCount] = result;
+                    historyCount++;
+                }
+
+                break;
+
+
+            case 3:
+                printf("Enter two numbers: ");
+
+                if(scanf("%f %f", &a, &b) != 2)
+                {
+                    printf("Invalid input! Please enter numbers only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                result = multiply(a, b);
+
+                printf("Result = %.2f", result);
+
+                if(historyCount < 10)
+                {
+                    history[historyCount] = result;
+                    historyCount++;
+                }
+
+                break;
+
+
+            case 4:
+                printf("Enter two numbers: ");
+
+                if(scanf("%f %f", &a, &b) != 2)
+                {
+                    printf("Invalid input! Please enter numbers only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                if(b == 0)
+                {
+                    printf("Cannot divide by zero.");
+                }
+                else
+                {
+                    result = divide(a, b);
+
+                    printf("Result = %.2f", result);
+
+                    if(historyCount < 10)
+                    {
+                        history[historyCount] = result;
+                        historyCount++;
+                    }
+                }
+
+                break;
+
+
+            case 5:
+                printf("Enter two integers: ");
+
+                if(scanf("%d %d", &x, &y) != 2)
+                {
+                    printf("Invalid input! Please enter integers only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                if(y == 0)
+                {
+                    printf("Cannot find remainder with zero.");
+                }
+                else
+                {
+                    result = rem(x, y);
+
+                    printf("Remainder = %.2f", result);
+
+                    if(historyCount < 10)
+                    {
+                        history[historyCount] = result;
+                        historyCount++;
+                    }
+                }
+
+                break;
+
+
+            case 6:
+                printf("Enter number and percentage: ");
+
+                if(scanf("%f %f", &a, &b) != 2)
+                {
+                    printf("Invalid input! Please enter numbers only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                result = (a * b) / 100;
+
+                printf("Percentage = %.2f", result);
+
+                if(historyCount < 10)
+                {
+                    history[historyCount] = result;
+                    historyCount++;
+                }
+
+                break;
+
+
+            case 7:
+                printf("Enter a number: ");
+
+                if(scanf("%f", &a) != 1)
+                {
+                    printf("Invalid input! Please enter a number only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                result = a * a;
+
+                printf("Square = %.2f", result);
+
+                if(historyCount < 10)
+                {
+                    history[historyCount] = result;
+                    historyCount++;
+                }
+
+                break;
+
+
+            case 8:
+                printf("Enter base and power: ");
+
+                if(scanf("%f %f", &a, &b) != 2)
+                {
+                    printf("Invalid input! Please enter numbers only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                result = pow(a, b);
+
+                printf("Power = %.2f", result);
+
+                if(historyCount < 10)
+                {
+                    history[historyCount] = result;
+                    historyCount++;
+                }
+
+                break;
+
+
+            case 9:
+                printf("Enter a number: ");
+
+                if(scanf("%f", &a) != 1)
+                {
+                    printf("Invalid input! Please enter a number only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                result = a * a * a;
+
+                printf("Cube = %.2f", result);
+
+                if(historyCount < 10)
+                {
+                    history[historyCount] = result;
+                    historyCount++;
+                }
+
+                break;
+
+
+            case 10:
+            {
+                float n;
+
+                printf("Enter a positive number: ");
+
+                if(scanf("%f", &n) != 1)
+                {
+                    printf("Invalid input! Please enter a number only.");
+                    while(getchar() != '\n');
+                    break;
+                }
+
+                if(n < 0)
+                {
+                    printf("Square root of negative number is not possible.");
+                }
+                else
+                {
+                    result = sqrt(n);
+
+                    printf("Square Root = %.2f", result);
+
+                    if(historyCount < 10)
+                    {
+                        history[historyCount] = result;
+                        historyCount++;
+                    }
+                }
+
+                break;
+            }
+
+
+            case 11:
+                printf("\n\n================================");
+                printf("\n          HISTORY");
+                printf("\n================================");
+
+                if(historyCount == 0)
+                {
+                    printf("\nNo history available.");
+                }
+                else
+                {
+                    for(int i = 0; i < historyCount; i++)
+                    {
+                        printf("\n%d. %.2f", i + 1, history[i]);
+                    }
+                }
+
+                printf("\n================================");
+
+                break;
+
+
+            case 12:
+                historyCount = 0;
+
+                printf("\nHistory cleared successfully.");
+
+                break;
+
+
+            default:
+                printf("\nInvalid choice! Please choose 1 to 12.");
+        }
+
+        printf("\n\nDo you want to continue? (y/n): ");
+        scanf(" %c", &again);
+
+    } while(again == 'y' || again == 'Y');
+
+    printf("\nCalculator closed.");
+
+    return 0;
+}
